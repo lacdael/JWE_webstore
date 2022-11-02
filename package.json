@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@ronomon/quoted-printable": "^3.2.1",
+    "dotenv": "^16.0.3",
+    "imap-simple": "^5.1.0",
+    "jose": "^4.10.3",
+    "lodash": "^4.17.21"
+  },
+  "type": "module"
+}
