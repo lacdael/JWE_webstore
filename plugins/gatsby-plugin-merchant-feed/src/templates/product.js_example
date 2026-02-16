@@ -1,0 +1,36 @@
+import React from "react";
+import { graphql } from "gatsby";
+
+export default function Product({ data }) {
+  const p = data.merchantProduct;
+
+  return (
+    <main>
+      <h1>{p.title}</h1>
+      <img src={p.imageUrl} alt={p.title} />
+      <p>{p.description}</p>
+      <p>
+        {p.price} {p.currency}
+      </p>
+      <p>{p.availability}</p>
+      <a href={p.link} target="_blank" rel="noopener noreferrer">
+        Buy now
+      </a>
+    </main>
+  );
+}
+
+export const query = graphql`
+  query ($id: String!) {
+    merchantProduct(id: { eq: $id }) {
+      title
+      description
+      price
+      currency
+      availability
+      imageUrl
+      link
+    }
+  }
+`;
+

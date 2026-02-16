@@ -1,0 +1,19 @@
+#modal {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: var(--dark);
+    /* display: block; */
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#modal-inner {
+    background: var(--faint);
+    overflow:auto;
+    height:100%;
+    padding-top:2em;
+}
+
+

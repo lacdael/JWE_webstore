@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Os Publishing</title>
+    <link>https://poetry.me.uk</link>
+    <description>Os Publishing Google Merchant feed</description>
+    <item>
+      
+      <!-- Required -->
+      <g:id>CALEN-H-H</g:id>
+      <title><![CDATA[Calendar - Handmade, Hardcover]]></title>
+      <g:description><![CDATA[A poetry collection, marking the dates and events that have shaped Western culture. Hand-bound hardcover book.]]></g:description>
+      <link>https://poetry.me.uk/shop/calendar-handmade-hardcover</link>
+      <g:image_link>https://poetry.me.uk/products/CALEN-H-H.png</g:image_link>
+      <g:price>20.00 GBP</g:price>
+      <g:condition>new</g:condition>
+      <g:availability>preorder</g:availability>
+      <g:sale_price_effective_date>2025-01-01T00:00:00Z/2026-12-31T23:59:59Z</g:sale_price_effective_date>
+
+      <!-- Recommended / Optional -->
+      <g:brand>Os Publishing</g:brand>
+      <g:mpn><![CDATA[CALEN-H-H]]></g:mpn>
+      <g:identifier_exists>FALSE</g:identifier_exists>
+
+      <!-- Category & taxonomy -->
+      <g:google_product_category><![CDATA[Media > Books]]></g:google_product_category>
+      <g:product_type><![CDATA[Books > Poetry > Collections]]></g:product_type>
+
+      <!-- Shipping info -->
+      <g:shipping>
+        <g:country>GB</g:country>
+        <g:service>Standard</g:service>
+        <g:price>3.50 GBP</g:price>
+      </g:shipping>
+
+
+      <!-- Optional structured attributes -->
+      <g:material><![CDATA[Hardcover Paper]]></g:material>
+      <g:age_group><![CDATA[adult]]></g:age_group>
+      <g:color><![CDATA[red]]></g:color>
+      <g:size><![CDATA[A5]]></g:size>
+
+      <!-- For preorder products -->
+      <g:availability_date><![CDATA[2026-01-30T00:00:00Z]]></g:availability_date>
+
+      <!-- Custom labels for campaigns -->
+      <g:custom_label_0><![CDATA[Handmade]]></g:custom_label_0>
+      <g:custom_label_1><![CDATA[Poetry]]></g:custom_label_1>
+
+    </item>
+  </channel>
+</rss>

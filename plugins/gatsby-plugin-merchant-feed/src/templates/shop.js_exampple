@@ -1,0 +1,42 @@
+import React from "react";
+import { graphql, Link } from "gatsby";
+
+export default function Shop({ data }) {
+  const products = data.allMerchantProduct.nodes;
+
+  return (
+    <main>
+      <h1>Shop</h1>
+
+      <ul>
+        {products.map(p => (
+          <li key={p.id}>
+            <Link to={`/shop/${p.slug}`}>
+              <img src={p.imageUrl} alt={p.title} width="150" />
+              <h2>{p.title}</h2>
+              <p>
+                {p.price} {p.currency}
+              </p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
+  );
+}
+
+export const query = graphql`
+  {
+    allMerchantProduct(sort: { fields: title }) {
+      nodes {
+        id
+        title
+        slug
+        price
+        currency
+        imageUrl
+      }
+    }
+  }
+`;
+

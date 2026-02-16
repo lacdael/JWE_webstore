@@ -1,0 +1,10 @@
+{
+  "name": "gatsby-plugin-merchant-feed",
+  "version": "1.0.0",
+  "main": "gatsby-node.js",
+  "dependencies": {
+    "fast-xml-parser": "^4.2.0",
+    "slugify": "^1.6.6"
+  }
+}
+

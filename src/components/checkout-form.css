@@ -1,0 +1,161 @@
+:root {
+  --primary: #1a73e8;
+  --secondary: #f5f5f5;
+  --text: #333;
+  --border: #ccc;
+  --border-radius: 6px;
+}
+
+/* Base form styling */
+.checkout-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 24px;
+  background: var(--secondary);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checkout-form h2 {
+  margin: 0 0 16px;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Labels and inputs */
+.checkout-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: var(--text);
+  font-size: 0.95em;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  margin-top: 6px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  resize: vertical;
+}
+
+.checkout-data,
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+
+
+/* Submit button */
+.submit-button {
+  padding: 12px;
+  font-size: 1em;
+  font-weight: bold;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #1558b0;
+}
+
+
+
+
+
+
+
+
+
+.checkout {
+  margin: 0.5em;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.checkout-tabs {
+  display: flex;
+  background: #f6f6f6;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.checkout-tabs button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkout-tabs button:hover {
+  background: #ececec;
+}
+
+.checkout-tabs button.active {
+  background: white;
+  border-bottom: 2px solid #000;
+  font-weight: 600;
+}
+
+.checkout-content {
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .checkout-form {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .checkout-form input,
+  .checkout-form textarea {
+    font-size: 0.95em;
+  }
+
+  .submit-button {
+    font-size: 0.95em;
+  }
+}
+
