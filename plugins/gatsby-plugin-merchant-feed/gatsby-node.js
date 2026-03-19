@@ -10,7 +10,6 @@ function resolveTemplate(templatePath, fallback) {
   return path.resolve(process.cwd(), templatePath);
 }
 
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
@@ -39,21 +38,36 @@ function readFeed(feedPath) {
   return parser.parse(xml);
 }
 
+function xmlText(v) {
+  if (!v) return "";
+
+  if (typeof v === "string") return v;
+
+  if (typeof v === "object") {
+    return v["#text"] || v["#cdata"] || v.__cdata || "";
+  }
+
+  return String(v);
+}
+
 function normalizeItem(item) {
-  const [price, currency] = (item["g:price"] || "0 USD").split(" ");
+
+  const [price, currency] = xmlText(item["g:price"] || "0 USD").split(" ");
+
+  const title = xmlText(item["g:title"]);
 
   return {
-    merchantId: item["g:id"],
-    title: item.title,
-    description: item["g:description"],
+    merchantId: xmlText(item["g:id"]),
+    title,
+    description: xmlText(item["g:description"]),
     price: Number(price),
     currency,
-    availability: item["g:availability"],
-    brand: item["g:brand"],
-    category: item["g:google_product_category"],
-    imageUrl: item["g:image_link"],
-    link: item.link,
-    slug: slugify(item.title, { lower: true, strict: true }),
+    availability: xmlText(item["g:availability"]),
+    brand: xmlText(item["g:brand"]),
+    category: xmlText(item["g:google_product_category"]),
+    imageUrl: xmlText(item["g:image_link"]),
+    link: xmlText(item.link),
+    slug: slugify(title, { lower: true, strict: true }),
   };
 }
 
@@ -86,46 +100,6 @@ exports.sourceNodes = (
     });
   });
 };
-
-const createPagesOld = async (
-  { graphql, actions },
-  pluginOptions
-) => {
-  const { createPage } = actions;
-
-  const basePath = pluginOptions.basePath || "/shop";
-
-  const result = await graphql(`
-    {
-      allMerchantProduct {
-        nodes {
-          id
-          slug
-        }
-      }
-    }
-  `);
-
-  if (result.errors) {
-    throw result.errors;
-  }
-
-  result.data.allMerchantProduct.nodes.forEach(product => {
-    createPage({
-      path: `${basePath}/${product.slug}`,
-      component: path.resolve(
-        __dirname,
-        "src/templates/product.js"
-      ),
-      context: {
-        id: product.id,
-      },
-    });
-  });
-};
-
-
-
 
 exports.createPages = async (
   { graphql, actions },

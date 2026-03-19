@@ -46,9 +46,9 @@ Example:
 
 ```js
 {
-  resolve: "gatsby-plugin-static-merchant-shop",
+  resolve: "gatsby-plugin-merchant-feed",
   options: {
-    feedUrl: "https://example.com/merchant-feed.xml"
+    feedFile: "merchant-feed.xml"
   }
 }
 ```
