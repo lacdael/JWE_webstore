@@ -1,4 +1,4 @@
-PUBLIC_KEY="-----BEGIN PUBLIC KEY-----
+const publicKey =`-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1w30OecfRCEbLC8/42K
 qXyUv4iUz6ySMwUkuvruRgKhvIsmZq4/Gio/ZxGSBkV7QjdVEKx0GsYF+B0snKAF
 J7YwvJyjG8pbwk2xv/88MuiRUXi3mzFr+Ihqbd4TzQ/EfBVRAaUdOvBLwtJdUreE
@@ -7,13 +7,11 @@ J7YwvJyjG8pbwk2xv/88MuiRUXi3mzFr+Ihqbd4TzQ/EfBVRAaUdOvBLwtJdUreE
 fOvkX42FhpOf35v86XWz19knWy3LldPF2MJ4NIBB02yt6ZfogVjkUC2KmPbPiVTb
 7QIDAQAB
 -----END PUBLIC KEY-----
-"
-PRIVATE_KEY="-----BEGIN PRIVATE KEY-----
------END PRIVATE KEY-----
-"
-EMAIL_PASS=""
-EMAIL_ADDRESS="user@example.com"
-EMAIL_SERVER="imap.example.com"
-EMAIL_PORT="993"
-EMAIL_TLS="true"
+`
 
+if (!publicKey) {
+	throw new Error("publicKey is not configured");
+}
+
+export const PUBLIC_KEY = publicKey.replace(/\\n/g, "\n");
+export const ALG = "RSA-OAEP-256";

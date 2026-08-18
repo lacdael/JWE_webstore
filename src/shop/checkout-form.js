@@ -4,6 +4,7 @@ import "./checkout-form.css";
 import "./modal.css";
 import Spinner from "./spinner";
 import * as jose from 'jose'
+import { ALG, PUBLIC_KEY } from "../config/crypto";
 
 export function CheckoutModal({image, title, description, quantity, price, currency, shipping, show}){
 	return(
@@ -79,18 +80,6 @@ export function CheckoutTabs({
 		</div>
 	);
 }
-
-const PUBLIC_KEY=`-----BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1w30OecfRCEbLC8/42K
-qXyUv4iUz6ySMwUkuvruRgKhvIsmZq4/Gio/ZxGSBkV7QjdVEKx0GsYF+B0snKAF
-J7YwvJyjG8pbwk2xv/88MuiRUXi3mzFr+Ihqbd4TzQ/EfBVRAaUdOvBLwtJdUreE
-3r+NRHsXt0UvjrENKplojQ4LKNrDs6CcFHcYcW+GtKZCJpgrNbwYGn9ePywH/ygU
-1dNQLlh/d+xFNAVnscp5mISxGEFJNykAwMT/Ner0gL2b4v6EqVxzi5iqpMd5/huX
-fOvkX42FhpOf35v86XWz19knWy3LldPF2MJ4NIBB02yt6ZfogVjkUC2KmPbPiVTb
-7QIDAQAB
------END PUBLIC KEY-----`
-
-const ALG = "RSA-OAEP-256";
 
 export function CheckoutForm({ title, quantity }){
 
