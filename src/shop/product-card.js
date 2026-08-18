@@ -14,7 +14,7 @@ export default function ProductCard({
 }) {
   return (
     <a href={url} className="product-card" target="_blank" rel="noopener noreferrer">
-      {badge && <div className="product-badge">{badge}</div>}
+     {badge && <div className="product-badge">{badge}</div>}
 
       <div className="product-image-wrap">
         <img src={image} alt={title} className="product-image" />

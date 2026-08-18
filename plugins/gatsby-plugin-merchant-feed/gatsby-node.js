@@ -54,7 +54,10 @@ function normalizeItem(item) {
 
   const [price, currency] = xmlText(item["g:price"] || "0 USD").split(" ");
 
-  const title = xmlText(item["g:title"]);
+  // `title` and `link` are RSS fields in the feed, while most other
+  // product attributes use Google's `g:` namespace. Support both forms so
+  // feeds using either convention produce a usable title and slug.
+  const title = xmlText(item["g:title"] || item.title);
 
   return {
     merchantId: xmlText(item["g:id"]),
@@ -107,7 +110,7 @@ exports.createPages = async (
 ) => {
   const { createPage } = actions;
 
-  const basePath = pluginOptions.basePath || "/shop";
+  const basePath = (pluginOptions.basePath || "/shop").replace(/\/+$/, "") || "/";
 
   const productTemplate = resolveTemplate(
     pluginOptions.productTemplate,
@@ -139,7 +142,7 @@ exports.createPages = async (
   // Create product pages
   result.data.allMerchantProduct.nodes.forEach(product => {
     createPage({
-      path: `${basePath}/${product.slug}`,
+      path: `${basePath === "/" ? "" : basePath}/${product.slug}`,
       component: productTemplate,
       context: {
         id: product.id,
@@ -153,4 +156,3 @@ exports.createPages = async (
     component: shopTemplate,
   });
 };
-

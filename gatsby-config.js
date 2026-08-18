@@ -5,6 +5,12 @@ module.exports = {
 	siteMetadata: {
 		title: `JWE_webstore`,
 		siteUrl: `https://www.yourdomain.tld`,
+		shopHeaderImage:"/shopHeader.png",
+		shopName:"Os Publishing",
+		author: "me",
+	        image: "/logo.png",
+        	imageWidth: 64,
+        	imageHeight: 64
 	},
 	plugins: [
 		
@@ -13,8 +19,8 @@ module.exports = {
 			options: {
 				feedFile: "google-merchant-feed.xml",
 				basePath: "/shop",
-				productTemplate: "src/templates/template-product.js",
-				shopTemplate: "src/templates/template-shop.js",
+				productTemplate: "src/shop/template-product.js",
+				shopTemplate: "src/shop/template-shop.js",
 			}
 
 		}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./product-detail.css";
-import { CheckoutModal } from "../components/checkout-form"; 
+import { CheckoutModal } from "./checkout-form";
 
 export default function ProductDetail({
   title,
@@ -96,4 +96,3 @@ export default function ProductDetail({
     </div>
   );
 }
-

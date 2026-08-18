@@ -1,28 +1,18 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import OS_PUBLISHING_IMG from '../images/Os_publishing.png';
-import "./layout.css";
+import SEO from '../components/seo'
+import "../components/layout.css"
 import ProductCard from "./product-card";
-
-
-
-export function Head(){
-	return (
-		<title>Shop</title>
-	);
-}
-
-
 
 
 export default function Shop({ data }) {
   const products = data.allMerchantProduct.nodes;
-
-console.log( products );
+  const shopName = data.site.siteMetadata.shopName;
+  const shopHeaderImage = data.site.siteMetadata.shopHeaderImage;
 
   return (
       <div style={{padding:`1em`}}>
-	 <img src={ OS_PUBLISHING_IMG } alt="Os Publishing" className="title-img" />
+	 <img src={ shopHeaderImage } alt={ shopName } className="title-img" />
         <ul className="breadcrumb">
         <li><Link to="/">Home</Link></li>
         <li>Shop</li>
@@ -34,7 +24,7 @@ console.log( products );
     <ProductCard
       key={p.id}
       title={p.title}
-      price={ p.price }
+      //price={ p.price }
       currency={ p.currency }
       description={p.description}
       image={p.imageUrl}
@@ -57,9 +47,29 @@ console.log( products );
   );
 }
 
+export function Head({ location }) {
+  return (
+    <SEO
+      title="Poetry and Writing Excerpts"
+      description="Exerpts from poetry collections, and misc. writing from Christian Lacdael"
+      pathname={location.pathname}
+    />
+  );
+}
+
+
+
+// new API:  allMerchantProduct(sort: {title: ASC}) {
 export const query = graphql`
-  {
-    allMerchantProduct(sort: { fields: title }) {
+  query {
+    site {
+      siteMetadata {
+        shopHeaderImage
+	shopName
+	siteUrl
+      }
+    }
+    allMerchantProduct(sort: { title: ASC }) {
       nodes {
         id
         title
@@ -72,4 +82,3 @@ export const query = graphql`
     }
   }
 `;
-

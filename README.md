@@ -1,3 +1,5 @@
+_version 0.1_
+
 # Static Shop from a Google Merchant Feed
 
 This Gatsby plugin turns a Google Merchant product feed into a fully static, high-performance storefront. It is designed for small shops, simple product catalogs, and low-volume sales where a full e-commerce platform would be unnecessary.
